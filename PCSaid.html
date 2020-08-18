@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>PCSaid</title>
+  <link rel="stylesheet" href="pcsaid.css" type="text/css" media="screen">
+  <script type="text/javascript" src="pcsaid_ui.js"></script>
+  <script type="text/javascript" src="html5sortable.js"></script>
+  <script type="text/javascript" src="pcsparse.js"></script>
+</head>
+<body id="pcsaid" onload="">
+  <div id="input">
+    
+    <div id="segments">
+      <ul id="sortable_wrapper" class="sortable">
+      </ul>
+    </div>
+    
+    <div id="raw">
+      <div id="pcs_wrp"><textarea name="pcs_raw" id="pcs_raw"></textarea></div>
+      <div id="cmd_wrp">
+        <label for="reviewer_id">R</label>
+        <input type="text" name="reviewer_id" value="1" id="reviewer_id">
+        <input type="button" name="import_cl" value="clear &amp; parse" id="import_cl" onclick="javascript:import_raw(false)">
+        <input type="button" name="clr_all" value="clear all" id="clr_all" onclick="javascript:clear_all()">
+      </div>
+    </div>
+  </div>
+  
+  <div id="output">
+  </div>
+  
+  <div id="render">
+    <input type="button" value="&lt;= render" onclick="render_text()">
+    <label for="heading_pref">pre</label>
+    <select name="heading_pref" id="heading_pref" onchange="hpref_changed()" size="1">
+      <option value=""></option>
+      <option value="=">=</option>
+      <option value="#">#</option>
+      <option value="*">*</option>
+      <option value="">-</option>
+    </select>
+    <input type="checkbox" id="heading_space">
+    <label for="heading_space">space</label>
+    <label for="heading_post">post</label>
+    <select name="heading_post" id="heading_post" onchange="hpost_changed()" size="1">
+      <option value=""></option>
+      <option value="=">=</option>
+      <option value=":">:</option>
+    </select>
+    <input type="checkbox" id="render_upper">
+    <label for="render_upper">uppercase</label>
+  </div>
+</body>
+</html>
